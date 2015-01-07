@@ -67,6 +67,7 @@ myTextField.text = (5).stringValue
 // this is good for submitting a form with a bad value that needs editing
 myTextField.becomeFirstResponder()
 
+
 // 7) Hides the status bar at the top of the screen
 override func prefersStatusBarHidden() -> Bool { return true }
 
@@ -87,4 +88,27 @@ if let objects = result as? [User] {
     if let lastUser = objects.last { ... }
 }
 
+
 // 9) A better way to set objects in CoreData
+
+// UIApplication is our top level selector for the application
+// sharedApplication is one and only one (singleton) instance,
+// then we get the delegate property
+let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+let managedObjectContext = appDelegate.managedObjectContext!
+
+let user = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as User
+
+// store everything from the session in CoreData,
+user.name = "Zack Shapiro"
+user.hometown = "Baltimore"
+user.baseballTeam = "Orioles"
+
+// trigger the save and account for a potential error
+var error : NSError?
+if !managedObjectContext.save(&error) {
+    println("save failed: \(error?.localizedDescription)")
+}
+
+
+// more coming soon
