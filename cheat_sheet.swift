@@ -115,4 +115,13 @@ if !managedObjectContext.save(&error) {
 UIApplication.sharedApplication().idleTimerDisabled = true
 
 
+// 11) dismiss the keyboard when pressing return in a UITextView
+
+func textView(textView: UITextView!, shouldChangeTextInRange: NSRange, replacementText: NSString!) {
+  if (replacementText == "\n") {
+    myTextView.resignFirstResponder()
+  }
+}
+
+
 // more coming soon

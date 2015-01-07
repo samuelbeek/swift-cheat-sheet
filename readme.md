@@ -13,6 +13,7 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Getting the last value of a model from CoreData
 * Better storage of objects in CoreData
 * Keep the phone from going to sleep
+* Dismiss keyboard when pressing return in a UITextView
 * More to come
 
 Created by [@ZackShapiro](http://twitter.com/zackshapiro)
