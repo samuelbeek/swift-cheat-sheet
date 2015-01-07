@@ -33,7 +33,7 @@ var avPlayer: AVAudioPlayer?
 var error: NSError?
 
 // first line creates a url, which you feed into the player and then play
-// use self. with these because your declaration of avPlayer above attached the player 
+// use self. with these because your declaration of avPlayer above attached the player
 // to the ViewController which is the top-level object & has property ViewContrller.avPlayer
 let fileURL: NSURL! = NSBundle.mainBundle().URLForResource("sound_name", withExtension: "wav")
 self.avPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
@@ -59,8 +59,7 @@ myTextField.text = (5).stringValue
 // 5) removing the keyboard
 // the code below should be tied to an IBAction most likely
 // tap somewhere on the screen, resign first responder
-
-// myTextField.resignFirstResponder()
+myTextField.resignFirstResponder()
 
 
 // 6) Focus on a text field
