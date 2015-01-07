@@ -38,3 +38,53 @@ var error: NSError?
 let fileURL: NSURL! = NSBundle.mainBundle().URLForResource("sound_name", withExtension: "wav")
 self.avPlayer = AVAudioPlayer(contentsOfURL: fileURL, error: nil)
 self.avPlayer?.play()
+
+
+// 3) How to edit the text of a UIButton
+// maybe your button has title "start"
+// Normal state is when it's not pressed, when it's just chillin'
+buttonName.setTitle("stop", forState: .Normal)
+
+
+// 4) Setting the value of a textField a few different ways
+myTextField.text = "Foo"
+
+// you can edit the value of %.0f for different percision in the decimal, this will return 2, rather than 2.0 or 2.0000
+myTextField.text = String(format: "%.0f", (Double(120) / Double(60)))
+
+// convert integer to string
+myTextField.text = (5).stringValue
+
+
+// 5) removing the keyboard
+// the code below should be tied to an IBAction most likely
+// tap somewhere on the screen, resign first responder
+
+// myTextField.resignFirstResponder()
+
+
+// 6) Focus on a text field
+// this is good for submitting a form with a bad value that needs editing
+myTextField.becomeFirstResponder()
+
+// 7) Hides the status bar at the top of the screen
+override func prefersStatusBarHidden() -> Bool { return true }
+
+
+// 8) Get last value from CoreData
+
+// fetch last user from coredata
+// you must import CoreData at the top of your file to do this
+// this assumes your CoreData model has the entity "User", User here can be anything
+let appDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+let managedObjectContext = appDelegate.managedObjectContext!
+let request = NSFetchRequest(entityName: "User")
+var error: NSError?
+
+// makes sure that objects are in the database before you fetch the last one
+let result = managedObjectContext.executeFetchRequest(request, error: &error)
+if let objects = result as? [User] {
+    if let lastUser = objects.last { ... }
+}
+
+// 9) A better way to set objects in CoreData
