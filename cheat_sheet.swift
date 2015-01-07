@@ -111,4 +111,9 @@ if !managedObjectContext.save(&error) {
 }
 
 
+// 10) prevent your phone from going to sleep, good if you don't want the user
+// getting to the lock screen
+UIApplication.sharedApplication().idleTimerDisabled = true
+
+
 // more coming soon

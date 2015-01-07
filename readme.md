@@ -1,8 +1,8 @@
 # Swift Cheat Sheet
 
-These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too.
+These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too. This file will grow as I continue to build in Swift. My goal with this is to create a living document that ties together a lot of the disperate Swift solutions out there as people begin to pick up speed on the language.
 
-(in order)
+(listed in order of appearance)
 * Creating background gradients
 * Playing a sound with AVFoundation
 * Editing the text of a UIButton
@@ -12,6 +12,7 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Hiding the status bar at the top of the view (the one with the battery and clock)
 * Getting the last value of a model from CoreData
 * Better storage of objects in CoreData
+* Keep the phone from going to sleep
 * More to come
 
 Created by [@ZackShapiro](http://twitter.com/zackshapiro)
