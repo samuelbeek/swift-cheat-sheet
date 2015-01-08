@@ -4,6 +4,8 @@
 import Foundation
 import AVFoundation
 import CoreData
+import AddressBook
+import AddressBookUI
 
 // 1) Create a background with a gradient for your view
 // if you're using Storyboards, create a background color
@@ -118,10 +120,95 @@ UIApplication.sharedApplication().idleTimerDisabled = true
 // 11) dismiss the keyboard when pressing return in a UITextView
 
 func textView(textView: UITextView!, shouldChangeTextInRange: NSRange, replacementText: NSString!) {
-  if (replacementText == "\n") {
-    myTextView.resignFirstResponder()
-  }
+    if (replacementText == "\n") {
+        myTextView.resignFirstResponder()
+    }
 }
 
 
-// more coming soon
+// 12) set a maximum amount of characters to a UITextView
+// add UITextViewDelegate to your viewcontroller like this:
+// class EditViewController : UIViewController, UITextViewDelegate {
+
+func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    let newLength = countElements(textView.text!)  + countElements(text) - range.length
+    return newLength <= 140 //return true if text is at most 140 characters
+}
+
+
+// 13) add person with first, last name, job title and phone number to the AddressBook
+
+func addUserToAddressBook(firstName: String, lastName: String, jobTitle: String, phoneNumber: String){
+    func createMultiStringRef() -> ABMutableMultiValueRef {
+        let propertyType: NSNumber = kABMultiStringPropertyType
+        return Unmanaged.fromOpaque(ABMultiValueCreateMutable(propertyType.unsignedIntValue).toOpaque()).takeUnretainedValue() as NSObject as ABMultiValueRef
+    }
+    
+    let stat = ABAddressBookGetAuthorizationStatus()
+    switch stat {
+    case .Denied, .Restricted:
+        println("no access to addressbook")
+    case .Authorized, .NotDetermined:
+        var err : Unmanaged<CFError>? = nil
+        var addressBook : ABAddressBook? = ABAddressBookCreateWithOptions(nil, &err).takeRetainedValue()
+        if addressBook == nil {
+            println(err)
+            return
+        }
+        ABAddressBookRequestAccessWithCompletion(addressBook) {
+            (granted:Bool, err:CFError!) in
+            if granted {
+                var newContact:ABRecordRef! = ABPersonCreate().takeRetainedValue()
+                var success:Bool = false
+                
+                //Updated to work in Xcode 6.1
+                var error: Unmanaged<CFErrorRef>? = nil
+                //Updated to error to &error so the code builds in Xcode 6.1
+                success = ABRecordSetValue(newContact, kABPersonFirstNameProperty, firstName, &error)
+                success = ABRecordSetValue(newContact, kABPersonLastNameProperty, lastName, &error)
+                success = ABRecordSetValue(newContact, kABPersonJobTitleProperty, jobTitle, &error)
+                
+                if(phoneNumber != nil) {
+                    let propertyType: NSNumber = kABMultiStringPropertyType
+                    
+                    var phoneNumbers: ABMutableMultiValueRef =  createMultiStringRef()
+                    var phone = ((phoneNumber as String).stringByReplacingOccurrencesOfString(" ", withString: "") as NSString)
+                    
+                    ABMultiValueAddValueAndLabel(phoneNumbers, phone, kABPersonPhoneMainLabel, nil)
+                    success = ABRecordSetValue(newContact, kABPersonPhoneProperty, phoneNumbers, &error)
+                    
+                    
+                }
+                success = ABRecordSetValue(newContact, kABPersonNoteProperty, "added via iPhone App", &error)
+                success = ABAddressBookAddRecord(addressBook, newContact, &error)
+                success = ABAddressBookSave(addressBook, &error)
+                
+            } else {
+                println(err)
+            }
+        }
+    }
+    
+}
+
+// 14) Use hex color codes for UIColor
+// adding this code snippet will enable you to use them like this:
+// let purpleColor : UIColor = UIColor.fromRGB(0x71679B) whereas
+// everything after the 0x is the hex color code
+
+
+extension UIColor {
+    
+    class func fromRGB(rgb:UInt32) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+}
+
+// more comming soon
+
