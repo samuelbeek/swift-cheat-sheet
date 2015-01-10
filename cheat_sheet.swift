@@ -126,13 +126,20 @@ func textView(textView: UITextView!, shouldChangeTextInRange: NSRange, replaceme
 }
 
 
-// 12) set a maximum amount of characters to a UITextView
-// add UITextViewDelegate to your viewcontroller like this:
+// 12) set a maximum amount of characters in a UITextView
+// add UITextViewDelegate to your ViewController like this:
 // class EditViewController : UIViewController, UITextViewDelegate {
 
 func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
     let newLength = countElements(textView.text!)  + countElements(text) - range.length
-    return newLength <= 140 //return true if text is at most 140 characters
+    let maxLength = 140
+    
+     //return true only if the length is at most the maxLength
+    if newLength <= maxLength {
+        return true
+    }
+    
+    return false
 }
 
 
@@ -168,7 +175,7 @@ func addUserToAddressBook(firstName: String, lastName: String, jobTitle: String,
                 success = ABRecordSetValue(newContact, kABPersonLastNameProperty, lastName, &error)
                 success = ABRecordSetValue(newContact, kABPersonJobTitleProperty, jobTitle, &error)
                 
-                if(phoneNumber != nil) {
+                if (phoneNumber != nil) {
                     let propertyType: NSNumber = kABMultiStringPropertyType
                     
                     var phoneNumbers: ABMutableMultiValueRef =  createMultiStringRef()
@@ -179,6 +186,7 @@ func addUserToAddressBook(firstName: String, lastName: String, jobTitle: String,
                     
                     
                 }
+                
                 success = ABRecordSetValue(newContact, kABPersonNoteProperty, "added via iPhone App", &error)
                 success = ABAddressBookAddRecord(addressBook, newContact, &error)
                 success = ABAddressBookSave(addressBook, &error)
