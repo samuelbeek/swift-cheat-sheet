@@ -20,6 +20,8 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Create a NSAttributedString 
 * More to come
 
-Created by [@ZackShapiro](http://twitter.com/zackshapiro)
+Created and Curated by [@ZackShapiro](http://twitter.com/zackshapiro)
+
+Additions by: [@samuelbeek](http://twitter.com/samuelbeek)
 
 _(Feel free to fork this and edit, update, remix, or create your own. Feedback and pull requests are welcome)_
