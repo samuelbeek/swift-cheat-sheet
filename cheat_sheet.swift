@@ -218,5 +218,19 @@ extension UIColor {
     
 }
 
+// 15) Create a NSAttributed String 
+// Styling a String with things like lineHeight is a bit harder
+// than you might think.  For example: let's take a String and
+// use Avenir Light 28pt font with 6pt lineSpacing
+
+// set the properties
+let font = UIFont(name: "Avenir-Light", size: 28)
+let style = NSMutableParagraphStyle()
+style.lineSpacing = 6
+
+let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: font!]
+
+var attributedString = NSAttributedString(string: "Example text", attributes:attributes)
+
 // more comming soon
 

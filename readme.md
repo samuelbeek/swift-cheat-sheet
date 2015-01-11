@@ -17,6 +17,7 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Set a maximum amount of characters in a UITextView 
 * Add a person to AddressBook
 * Use HexColors codes for UIColor 
+* Create a NSAttributedString 
 * More to come
 
 Created by [@ZackShapiro](http://twitter.com/zackshapiro)
