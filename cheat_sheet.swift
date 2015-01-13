@@ -232,5 +232,20 @@ let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: fo
 
 var attributedString = NSAttributedString(string: "Example text", attributes:attributes)
 
+// 16) Make a Screenshot 
+
+func makeScreenshot() -> UIImage {
+    
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    
+    self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+    var viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    
+    UIGraphicsEndImageContext()
+    
+    return viewImage
+}
+
+
 // more comming soon
 

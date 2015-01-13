@@ -18,10 +18,12 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Add a person to AddressBook
 * Use HexColors codes for UIColor 
 * Create a NSAttributedString 
+* Make a Screenshot
 * More to come
 
 Created and Curated by [@ZackShapiro](http://twitter.com/zackshapiro)
 
 Additions by: [@SamuelBeek](http://twitter.com/samuelbeek)
+
 
 _(Feel free to fork this and edit, update, remix, or create your own. Feedback and pull requests are welcome)_
