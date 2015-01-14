@@ -219,6 +219,7 @@ extension UIColor {
 }
 
 // 15) NSUserDefaults, save and retrieve values (can store more types than just those shown in this example)
+// Typically used to save user preferences for subsequent app launches
 
 let sampleObject = "Jasdev", sampleInt = 1, sampleBool = true
 let objectKey = "objectKey", intKey = "intKey", boolKey = "boolKey"
