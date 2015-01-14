@@ -231,7 +231,7 @@ NSUserDefaults.standardUserDefaults().setBool(sampleBool, forKey: boolKey)
 NSUserDefaults.standardUserDefaults().synchronize()
 
 // Retrieve defaults
-let object = NSUserDefaults.standardUserDefaults().objectForKey(objectKey) as? String
+let object = NSUserDefaults.standardUserDefaults().objectForKey(objectKey) as String
 let int = NSUserDefaults.standardUserDefaults().integerForKey(intKey)
 let bool = NSUserDefaults.standardUserDefaults().boolForKey(boolKey)
 
