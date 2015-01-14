@@ -14,9 +14,10 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Better storage of objects in CoreData
 * Keep the phone from going to sleep
 * Dismiss keyboard when pressing return in a UITextView
-* Set a maximum amount of characters in a UITextView 
+* Set a maximum amount of characters in a UITextView
 * Add a person to AddressBook
-* Use HexColors codes for UIColor 
+* Use HexColors codes for UIColor
+* Setting and retrieving NSUserDefaults
 * More to come
 
 Created by [@ZackShapiro](http://twitter.com/zackshapiro)
