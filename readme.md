@@ -1,6 +1,6 @@
 # Swift Cheat Sheet
 
-These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too. This file will grow as I continue to build in Swift. My goal with this is to create a living document that ties together a lot of the disperate Swift solutions out there as people begin to pick up speed on the language.
+These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too. This file will grow as I continue to build in Swift. My goal with this is to create a living document that ties together a lot of the disparate Swift solutions out there as people begin to pick up speed on the language.
 
 (listed in order of appearance)
 * Creating background gradients
