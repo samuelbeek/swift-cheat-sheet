@@ -1,6 +1,6 @@
 # Swift Cheat Sheet
 
-These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too. This file will grow as I continue to build in Swift. My goal with this is to create a living document that ties together a lot of the disperate Swift solutions out there as people begin to pick up speed on the language.
+These are things that I lookup frequently or solutions I spent some time on. I hope they can help you too. This file will grow as I continue to build in Swift. My goal with this is to create a living document that ties together a lot of the disparate Swift solutions out there as people begin to pick up speed on the language.
 
 (listed in order of appearance)
 * Creating background gradients
@@ -8,7 +8,7 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Editing the text of a UIButton
 * Setting the value of a textField a variety of ways
 * Removing the keyboard from the view
-* Focusing on a textFiel and bringing up the keyboard
+* Focusing on a textField and bringing up the keyboard
 * Hiding the status bar at the top of the view (the one with the battery and clock)
 * Getting the last value of a model from CoreData
 * Better storage of objects in CoreData
