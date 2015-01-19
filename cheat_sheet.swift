@@ -134,7 +134,7 @@ func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, repl
     let newLength = countElements(textView.text!)  + countElements(text) - range.length
     let maxLength = 140
     
-     //return true only if the length is at most the maxLength
+    //return true only if the length is at most the maxLength
     if newLength <= maxLength {
         return true
     }
@@ -218,7 +218,28 @@ extension UIColor {
     
 }
 
-// 15) Create a NSAttributed String 
+// 16) NSUserDefaults, save and retrieve values (can store more types than just those shown in this example)
+// Typically used to save user preferences for subsequent app launches
+
+let sampleObject = "Jasdev", sampleInt = 1, sampleBool = true
+let objectKey = "objectKey", intKey = "intKey", boolKey = "boolKey"
+
+// Set defaults
+NSUserDefaults.standardUserDefaults().setObject(sampleObject, forKey: objectKey)
+NSUserDefaults.standardUserDefaults().setInteger(sampleInt, forKey: intKey)
+NSUserDefaults.standardUserDefaults().setBool(sampleBool, forKey: boolKey)
+
+NSUserDefaults.standardUserDefaults().synchronize()
+
+// Retrieve defaults
+let object = NSUserDefaults.standardUserDefaults().objectForKey(objectKey) as String
+let int = NSUserDefaults.standardUserDefaults().integerForKey(intKey)
+let bool = NSUserDefaults.standardUserDefaults().boolForKey(boolKey)
+
+
+// more coming soon
+
+// 17) Create a NSAttributed String
 // Styling a String with things like lineHeight is a bit harder
 // than you might think.  For example: let's take a String and
 // use Avenir Light 28pt font with 6pt lineSpacing
@@ -230,22 +251,21 @@ style.lineSpacing = 6
 
 let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: font!]
 
+// Replace Example text with the prefered text or string.
 var attributedString = NSAttributedString(string: "Example text", attributes:attributes)
 
-// 16) Make a Screenshot 
+// 18) Make a Screenshot
 
 func makeScreenshot() -> UIImage {
-    
-    UIGraphicsBeginImageContext(self.view.bounds.size);
+    UIGraphicsBeginImageContext(self.view.bounds.size)
     
     self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
-    var viewImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    var viewImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
     
     UIGraphicsEndImageContext()
     
     return viewImage
 }
-
 
 // more comming soon
 
