@@ -18,7 +18,7 @@ These are things that I lookup frequently or solutions I spent some time on. I h
 * Add a person to AddressBook
 * Use HexColors codes for UIColor
 * Setting and retrieving NSUserDefaults
-* Create a NSAttributedString 
+* Create a NSAttributedString  
 * Make a Screenshot
 * More to come
 
