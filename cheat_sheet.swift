@@ -236,9 +236,6 @@ let object = NSUserDefaults.standardUserDefaults().objectForKey(objectKey) as St
 let int = NSUserDefaults.standardUserDefaults().integerForKey(intKey)
 let bool = NSUserDefaults.standardUserDefaults().boolForKey(boolKey)
 
-
-// more coming soon
-
 // 17) Create a NSAttributed String
 // Styling a String with things like lineHeight is a bit harder
 // than you might think.  For example: let's take a String and
