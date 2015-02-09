@@ -218,7 +218,7 @@ extension UIColor {
     
 }
 
-// 16) NSUserDefaults, save and retrieve values (can store more types than just those shown in this example)
+// 15) NSUserDefaults, save and retrieve values (can store more types than just those shown in this example)
 // Typically used to save user preferences for subsequent app launches
 
 let sampleObject = "Jasdev", sampleInt = 1, sampleBool = true
@@ -236,7 +236,7 @@ let object = NSUserDefaults.standardUserDefaults().objectForKey(objectKey) as St
 let int = NSUserDefaults.standardUserDefaults().integerForKey(intKey)
 let bool = NSUserDefaults.standardUserDefaults().boolForKey(boolKey)
 
-// 17) Create a NSAttributed String
+// 16) Create a NSAttributed String
 // Styling a String with things like lineHeight is a bit harder
 // than you might think.  For example: let's take a String and
 // use Avenir Light 28pt font with 6pt lineSpacing
@@ -251,7 +251,7 @@ let attributes = [NSParagraphStyleAttributeName : style, NSFontAttributeName: fo
 // Replace Example text with the prefered text or string.
 var attributedString = NSAttributedString(string: "Example text", attributes:attributes)
 
-// 18) Make a Screenshot
+// 17) Make a Screenshot
 
 func makeScreenshot() -> UIImage {
     UIGraphicsBeginImageContext(self.view.bounds.size)
@@ -265,4 +265,3 @@ func makeScreenshot() -> UIImage {
 }
 
 // more comming soon
-
